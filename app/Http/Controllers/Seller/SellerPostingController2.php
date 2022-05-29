@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
-class SellerPostingController extends Controller
+class SellerPostingController2 extends Controller
 {
     public function index(){
         $userId = Auth::id();
@@ -23,7 +23,8 @@ class SellerPostingController extends Controller
     }
 
     public function viewDetails(Request $Request){
-        $postId = $Request->input('id');
+        $postId  = $Request->input('id');
+        // dd($id);
         $projectDetails = DB::table('customer_requirements')
                           ->join('users','customer_requirements.seller_id','users.id')
                           ->where('customer_requirements.id',$postId)
@@ -42,21 +43,21 @@ class SellerPostingController extends Controller
 
     public function viewDesigner(Request $Request){
         $postId = $Request->input('id');
-        // dd($id);
         $designers = DB::table('project_proposals')
-                    ->join('users','project_proposals.designer_id','users.id')
-                     ->where('project_id',$postId)
-                     ->select('users.*')
-                     ->paginate(5);
+        ->join('users','project_proposals.designer_id','users.id')
+         ->where('project_id',$postId)
+         ->select('users.*')
+         ->paginate(5);
 
         // dd($designers);
-        return view('designer',compact('designers'));
+        return view('designer',compact('designers','postId'));
     
     }
 
 
     public function viewDesignerDetails(Request $Request){
-        $id = $Request->input('id'); //post id
+        $id = $Request->input('id'); //Designer id
+        $postId = $Request->input('postid'); //post ID
         $userId = Auth::id();
         
         // dd($id);
@@ -87,12 +88,9 @@ class SellerPostingController extends Controller
                           ->count();
                             // dd($completedProject);
 
+
         $projectDetails = DB::table('designer_projects')->where('userId',$id)->where('status','completed')->get();
 
-        // dd($projectDetails);
-
-
-      
         
         // dd($projectDetails);
     	// $projectLinks = $projectDetails->Links;
@@ -101,9 +99,10 @@ class SellerPostingController extends Controller
   	  
 
 
-        $userinfo = DB::table('users')->where('id',$userId)->first();
+        $userinfo = DB::table('users')->where('id',$id)->first();
+        $Admininfo = DB::table('users')->where('id',$userId)->first();
     
-        return view('designer-details',compact('completedProject','ongoingProject','cancleProject','totalProject','totalFeedBack','projectDetails','userinfo'));
+        return view('designer-details',compact('completedProject','ongoingProject','cancleProject','totalProject','totalFeedBack','projectDetails','userinfo','postId','Admininfo'));
     }
 
 

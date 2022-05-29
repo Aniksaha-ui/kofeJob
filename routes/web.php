@@ -59,19 +59,20 @@ Route::group(['middleware' => 'App\Http\Middleware\Designer'],function(){
         Route::get('/post-project','Designer\PostController@create');
     Route::post('/post-project','Designer\PostController@store')->name('designerpost.insert');
     //seller posts management
-    Route::get('/manage-projects', 'Seller\SellerPostingController@index')->name('manage-projects');
-    Route::get('/view-project-detail','Seller\SellerPostingController@viewDetails')->name('view-project-detail');
+    Route::get('/manage-projects', 'Seller\SellerPostingController2@index')->name('manage-projects');
+    Route::get('/view-project-detail','Seller\SellerPostingController2@viewDetails')->name('view-project-detail');
     //seller posts management
 
     //Designers profile
-    Route::get('/degisner','Seller\SellerPostingController@viewDesigner')->name('degisner');
+    Route::get('/degisner','Seller\SellerPostingController2@viewDesigner')->name('degisner');
     //have to update
-    Route::get('/designer-details','Seller\SellerPostingController@viewDesignerDetails')->name('designer-details');
+    Route::get('/designer-details','Seller\SellerPostingController2@viewDesignerDetails')->name('designer-details');
     //have to update
 
-    //bidding
+    //hired a developer
+     Route::post('/hire-now','Seller\DesignerHireProcessController@store')->name('designerhire.insert');
     
-
+    //hired a developer 
 
 
 

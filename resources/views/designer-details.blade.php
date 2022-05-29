@@ -417,43 +417,48 @@
 							<span aria-hidden="true">×</span>
 						</button>
 					</div>
-					<div class="modal-body">
-						<div class="text-center pt-0 mb-4">
-							<img src="assets/img/logo-01.png" alt="logo" class="img-fluid mb-1">
-							<h5 class="modal-title">Discuss your project with David</h5>
-						</div>
-						<form action="dashboard">
+					
+					<div class="modal-body">		
+					<br>
+						<form method="post" action="{{route('designerhire.insert')}}" enctype="multipart/form-data">
+							@csrf
 							<div class="modal-info">
 								<div class="row">
-									<div class="col-12 col-md-12">
-										<div class="form-group">
-											<input type="text" name="name" class="form-control" placeholder="First name & Lastname">
+								
+									<div class="form-group">
+										{{-- candidate name only for show  --}}
+											<input type="text" name="designerName" class="form-control" value={{$userinfo->name}} placeholder="Candidate Name">
 										</div> 
-										<div class="form-group">
-											<input type="email" name="name" class="form-control" placeholder="Email Address">
+
+										 {{-- candidate id  --}}
+										 <div class="form-group">
+											<input type="text" name="designerId" 
+											hidden="true"
+											class="form-control"  value={{$userinfo->id}} placeholder="Admin Id ">
 										</div> 
+										{{-- candidate id  --}}
+									   
+
+										{{-- project id  --}}
 										<div class="form-group">
-											<input type="text" name="name" class="form-control" placeholder="Phone Number">
+											<input type="text" name="projectId" 
+											hidden="true"
+											class="form-control"  value={{$postId}} placeholder="Project Id">
 										</div> 
-										<div class="form-group">
-											<textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
+										{{-- project id  --}}
+
+										   {{-- Seller id  --}}
+										   <div class="form-group">
+											<input type="text" name="sellerId"
+											hidden="true" class="form-control"  value={{$Admininfo->id}} placeholder="Admin Id ">
 										</div> 
-										<div class="form-group row">
-											<div class="col-12 col-md-4 pr-0">
-												<label class="file-upload">
-													Add Attachment <input type="file" />
-												</label>
-											</div>											
-											<div class="col-12 col-md-8">
-												<p class="mb-1">Allowed file types: zip, pdf, png, jpg</p>
-												<p>Max file size: 50 MB</p>
-											</div>
-										</div>
-									</div>
+										{{-- Seller id  --}}
+										
+
 								</div>
 							</div>
-							<div class="submit-section text-center">
-								<button type="submit" class="btn btn-primary btn-block submit-btn">Hire Now</button>
+							<div class="submit-section text-end">
+								<button type="submit" class="btn btn-primary submit-btn">Submit</button>
 							</div>
 						</form>
 					</div>

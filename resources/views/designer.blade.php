@@ -150,7 +150,7 @@
 											</div>
 										</div>
 										<div class="cart-hover">
-											<a href={{ url('designer-details?id='.$row->id) }} class="btn-cart" tabindex="-1">View Profile</a>
+											<a href={{ url('designer-details?id='.$row->id.'&&postid='.$postId) }} class="btn-cart" tabindex="-1">View Profile</a>
 										</div>
 									</div>
 								</div>

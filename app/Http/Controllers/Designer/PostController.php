@@ -137,7 +137,7 @@ class PostController extends Controller
                   'massage'=>'Your Post Added successfully',
                   'alert-type'=>'success'
             );
-                 return Redirect()->back()->with($notification);
+            return Redirect()->back()->with($notification);
         }
 
     }
