@@ -82,13 +82,13 @@
 							<nav class="user-tabs mb-4">
 								<ul class="nav nav-tabs nav-tabs-bottom nav-justified">
 									<li class="nav-item">
-										<a class="nav-link active" href="designer-project-proposals">ALL Projects</a>
+										<a class="nav-link" href="designer-project-proposals">ALL Projects</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="designer-ongoing-projects">Ongoing Projects</a>
 									</li>
 									<li class="nav-item">
-										<a class="nav-link" href="designer-hired-projects ">Hired Projects</a>
+										<a class="nav-link active" href="designer-hired-projects ">Hired Projects</a>
 									</li>
 									<li class="nav-item">
 										<a class="nav-link" href="designer-completed-projects">Completed Projects</a>
@@ -104,7 +104,7 @@
 								<h3 class="page-subtitle">My Proposals</h3>
 								
 								<!-- Proposals -->
-								@foreach($allProject as $row)
+								@foreach($hiredProject as $row)
 								<div class="designer-proposals">
 									<div class="project-proposals align-items-center freelancer">
 										<div class="proposals-info">
@@ -171,7 +171,7 @@
 							<!-- /Proposals list -->
 							
 							<div class="d-flex align-items-center justify-content-center">
-								{{$allProject->links()}}
+								{{$hiredProject->links()}}
 
 							</div>
 							

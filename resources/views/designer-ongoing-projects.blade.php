@@ -87,6 +87,9 @@
 										<a class="nav-link active" href="designer-ongoing-projects">Ongoing Projects</a>
 									</li>
 									<li class="nav-item">
+										<a class="nav-link" href="designer-hired-projects ">Hired Projects</a>
+									</li>
+									<li class="nav-item">
 										<a class="nav-link" href="designer-completed-projects">Completed Projects</a>
 									</li>
 									<li class="nav-item">

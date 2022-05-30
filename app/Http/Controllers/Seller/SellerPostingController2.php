@@ -91,7 +91,12 @@ class SellerPostingController2 extends Controller
 
         $projectDetails = DB::table('designer_projects')->where('userId',$id)->where('status','completed')->get();
 
+        //Current project proposal
+        $postStatus = DB::table('customer_requirements')->where('id',$postId)->select('status')->first();
+
         
+
+
         // dd($projectDetails);
     	// $projectLinks = $projectDetails->Links;
         // dd($projectDetails->Links);
@@ -102,7 +107,7 @@ class SellerPostingController2 extends Controller
         $userinfo = DB::table('users')->where('id',$id)->first();
         $Admininfo = DB::table('users')->where('id',$userId)->first();
     
-        return view('designer-details',compact('completedProject','ongoingProject','cancleProject','totalProject','totalFeedBack','projectDetails','userinfo','postId','Admininfo'));
+        return view('designer-details',compact('completedProject','ongoingProject','cancleProject','totalProject','totalFeedBack','projectDetails','userinfo','postId','Admininfo','postStatus'));
     }
 
 

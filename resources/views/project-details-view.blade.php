@@ -168,7 +168,7 @@
 											<div class="card-body">
 												<div class="prj-proposal-count text-center hired">
 													<div class="prj-proposal-count text-center hired">
-														Project Status will show after hireing
+													{{$projectStatus->status}}
 												</div>
 											</div>
 										</div>

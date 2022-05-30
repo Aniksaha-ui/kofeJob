@@ -20,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'FrontPageController@index');   
+Route::get('/', 'FrontPageController@home');   
+
+
+// Route::get('/', 'FrontPageController@index');    
 
 Route::get('/user/logout','HomeController@logout')->name('user.logout');
 
@@ -35,6 +38,8 @@ Route::group(['middleware' => 'App\Http\Middleware\Designer'],function(){
     Route::get('/designer-cancelled-projects', 'Designer\PostController@cancelledProject');
     
     Route::get('/designer-completed-projects','Designer\PostController@completedProject');
+    
+    Route::get('/designer-hired-projects','Designer\PostController@hiredProject');
 
     Route::get('/proposal-view-project','Designer\PostController@projectDetails');
 

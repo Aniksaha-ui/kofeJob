@@ -24,9 +24,7 @@ class PostController extends Controller
  
     }
 
-    public function acceptedProject(){
-        
-    }
+   
 
     public function ongoingProject(){
         $id = Auth::id();
@@ -73,10 +71,26 @@ class PostController extends Controller
         return view('designer-completed-projects',compact('completedProjects'));
     }
 
+    public function hiredProject(){
+        $id = Auth::id();
+        $hiredProject = DB::table('designer_projects')
+        ->join('users','designer_projects.userId','users.id')
+        ->where('users.role','designer')
+        ->where('users.id',$id)
+        ->where('status','hired')
+        ->select('*')
+        ->paginate(5);
+        // dd($allProject);
+
+ 
+        return view('designer-hired-projects',compact('hiredProject'));
+    }
+
 
     public function projectDetails(Request $Request){
     
     $projectId = $Request->input('id'); 
+    $projectStatus = DB::table('customer_requirements')->where('id',$projectId)->select('status')->first();
 
     $projectDetails = DB::table('designer_projects')
                       ->join('users','designer_projects.seller_id','users.id')->where('projectId',$projectId)->first();
@@ -86,7 +100,7 @@ class PostController extends Controller
     $projectExpertise = $projectDetails->expertise;
     $expertise = explode(',', $projectExpertise);
     
-    return view('project-details-view',compact('projectDetails','expertise'));
+    return view('project-details-view',compact('projectDetails','expertise','projectStatus'));
 
 
     }
