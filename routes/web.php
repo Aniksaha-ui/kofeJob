@@ -80,6 +80,20 @@ Route::group(['middleware' => 'App\Http\Middleware\Designer'],function(){
     //hired a developer 
 
 
+    //update project status as complete
+    Route::get('setCompleteProject','Seller\SellerPostingController2@updateCompleteProject');
+
+    //update project status as complete
+
+    //Add to favorite list
+    
+    Route::get('/addfavorite','Seller\DesignerFavoriteController@addFavorite')->name('designerfavorite.insert');
+    //Add to favorite list
+    Route::get('/favorite','Seller\DesignerFavoriteController@showFavoriteList')->name('favorite-designers');
+
+    Route::get('deleteFavoriteDesigner', 'Seller\DesignerFavoriteController@deleteFavoriteDesigner');
+
+
 
 });
 

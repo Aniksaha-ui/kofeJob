@@ -36,12 +36,12 @@
 												</a>
 											</li>
 											<li class="nav-item">
-												<a href="manage-projects" class="nav-link active">
-													<i class="material-icons">business_center</i> Projects
+												<a href={{url('/designer-project-proposals')}} class="nav-link active">
+													<i class="material-icons">business_center</i> projects
 												</a>
 											</li>
 											<li class="nav-item">
-												<a href="favourites" class="nav-link">
+												<a href="{{url('favorite')}}" class="nav-link ">
 													<i class="material-icons">local_play</i> Favourites
 												</a>
 											</li>
@@ -126,7 +126,7 @@
 								<div class="col-md-6 col-lg-6 col-xl-4">
 									<div class="freelance-widget">
 										<div class="freelance-content">
-											<a data-bs-toggle="modal" href="#rating" class="favourite"><i class="fas fa-star"></i></a>
+											
 											<div class="freelance-img">
 												<a href="#">
 													<img src="assets/img/user/avatar-12.jpg" alt="User Image">
@@ -149,9 +149,16 @@
 												<div class="freelancers-price">Free</div>
 											</div>
 										</div>
-										<div class="cart-hover">
-											<a href={{ url('designer-details?id='.$row->id.'&&postid='.$postId) }} class="btn-cart" tabindex="-1">View Profile</a>
+										<div class="d-flex align-items-center justify-content-center">
+											<div class="cart-hover">
+												<a href={{ url('designer-details?id='.$row->id.'&&postid='.$postId) }} class="btn-cart" tabindex="-1">View Profile</a>
+											</div>
+
+											<div class="cart-hover ms-5">
+												<a href={{ url('addfavorite?id='.$row->id) }} class="btn-cart" tabindex="-1">Add to Favorite</a>
+											</div>
 										</div>
+										
 									</div>
 								</div>
 								@endforeach

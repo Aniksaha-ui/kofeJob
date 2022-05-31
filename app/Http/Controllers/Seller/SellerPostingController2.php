@@ -47,7 +47,8 @@ class SellerPostingController2 extends Controller
         ->join('users','project_proposals.designer_id','users.id')
          ->where('project_id',$postId)
          ->select('users.*')
-         ->paginate(5);
+         ->paginate(5); 
+
 
         // dd($designers);
         return view('designer',compact('designers','postId'));
@@ -110,5 +111,21 @@ class SellerPostingController2 extends Controller
         return view('designer-details',compact('completedProject','ongoingProject','cancleProject','totalProject','totalFeedBack','projectDetails','userinfo','postId','Admininfo','postStatus'));
     }
 
+    public function updateCompleteProject(Request $Request){
+        $data = array();
+        $data['status'] = "completed";
+        $projectId = $Request->input('id');
+        // dd($projectId);
+        DB::table('customer_requirements')->where('id',$projectId)->update($data);
+        DB::table('designer_projects')->where('projectId',$projectId)->where('status','hired')->update($data);
+        DB::table('project_proposals')->where('project_id',$projectId)->where('status','hired')->update($data);
+
+        $notification=array(
+            'massage'=>'Data updated',
+            'alert-type'=>'success'
+      );
+        return Redirect()->back()->with($notification);
+
+    }
 
 }

@@ -26,15 +26,16 @@
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="manage-projects" class="nav-link active">
-												<i class="material-icons">business_center</i> Projects
+											<a href={{url('/designer-project-proposals')}} class="nav-link active">
+												<i class="material-icons">business_center</i> projects
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="favourites" class="nav-link">
+											<a href="{{url('favorite')}}" class="nav-link ">
 												<i class="material-icons">local_play</i> Favourites
 											</a>
 										</li>
+
 										<li class="nav-item">
 											<a href="review" class="nav-link">
 												<i class="material-icons">record_voice_over</i> Reviews

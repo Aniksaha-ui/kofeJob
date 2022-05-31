@@ -51,16 +51,17 @@
 										<div class="pro-info-right profile-inf r-0">
 											<ul class="profile-right">
 												<li><div><h3 class="amt-hr">$20.00</h3> <p>( Per Hour )</p></div></li>
-											</ul>									@if($postStatus->status!='hired')		
+											</ul>									@if($postStatus->status=='ongoing')		
 											<div class="d-flex align-items-center justify-content-md-end justify-content-center">
 												<a href="javascript:void(0)"><i class="fas fa-heart heart fa-2x me-2 orange-text"></i></a> 
 												<a class="btn bid-btn" data-bs-toggle="modal" href="#hire">Hire Now <i class="fas fa-long-arrow-alt-right"></i></a>
 											</div>
 											@endif
 
-											@if($postStatus->status == 'hired')
+											@if($postStatus->status == 'hired' || $postStatus->status == 'completed')
 											<h3 class="text-primary">Hired</h3>
 											@endif
+											
 
 											
 

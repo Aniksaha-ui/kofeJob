@@ -27,12 +27,12 @@
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="manage-projects" class="nav-link active">
-												<i class="material-icons">business_center</i> Projects
+											<a href={{url('/designer-project-proposals')}} class="nav-link active">
+												<i class="material-icons">business_center</i> projects
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="favourites" class="nav-link">
+											<a href="{{url('favorite')}}" class="nav-link ">
 												<i class="material-icons">local_play</i> Favourites
 											</a>
 										</li>
@@ -150,7 +150,8 @@
 														<div class="content-divider"></div>
 														<div class="projects-action text-center">
 															<a href="{{ url('view-project-detail?id='.$row->id) }}" class="projects-btn">View Details</a>
-															<a href="#" class="hired-detail">Hired on {{$row->startingDate}}</a>
+															<a href="{{ url('setCompleteProject?id='.$row->id) }}" class="projects-btn">Complete Project</a>
+															<a href="#" class="hired-detail">Start on {{$row->startingDate}}</a>
 														</div>
 													</div>
 												</div>
@@ -161,13 +162,13 @@
 										<div class="projects-card flex-fill">
 											<div class="card-body p-2">
 												<div class="prj-proposal-count text-center hired">
-													@if($row->designer_id!=0)
+													{{-- @if($row->designer_id!=0)
 													<h3>Hired</h3>
 													@endif
 													@if($row->designer_id==0)
 													<h3>Not Yet </h3>
-													@endif
-											
+													@endif --}}
+													<h3>{{$row->status}}</h3>	
 												</div>
 											</div>
 										</div>
