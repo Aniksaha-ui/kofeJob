@@ -52,8 +52,9 @@ class DesignerSellerPostController extends Controller
       $project_id = $Request->id;
       $projectDetails = DB::table('customer_requirements')->where('id',$project_id)->first();
       $seller_id =  $projectDetails->seller_id; 
-    
+      
       $seller_name= DB::table('users')->where('id',$seller_id)->select('name')->pluck('name')->first();
+      $userName = DB::table('users')->where('id',Auth::id())->select('name')->pluck('name')->first();
       // dd($seller_name);
       $data = array();
 
@@ -63,6 +64,7 @@ class DesignerSellerPostController extends Controller
       $data['seller_id'] = $projectDetails->seller_id;
       $data['priceType'] = $projectDetails->priceType;
       $data['coverLetter'] = $Request->cover_letter;
+      $data['designer_name'] = $userName;
       
       
       $proposal = array();

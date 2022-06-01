@@ -53,6 +53,10 @@ Route::group(['middleware' => 'App\Http\Middleware\Designer'],function(){
         //store proposal data
         //for show customers post and details in designer Dashboard
 
+        //Designer review show
+        Route::get('myReview','Designer\ReviewController@index');
+
+
 });
 
 
@@ -88,10 +92,17 @@ Route::group(['middleware' => 'App\Http\Middleware\Designer'],function(){
     //Add to favorite list
     
     Route::get('/addfavorite','Seller\DesignerFavoriteController@addFavorite')->name('designerfavorite.insert');
-    //Add to favorite list
+    
     Route::get('/favorite','Seller\DesignerFavoriteController@showFavoriteList')->name('favorite-designers');
 
     Route::get('deleteFavoriteDesigner', 'Seller\DesignerFavoriteController@deleteFavoriteDesigner');
+   //Add to favorite list done 
+
+    //review section
+    Route::get('sellerReview','Seller\ReviewController@index');
+    Route::post('sellerReview','Seller\ReviewController@store')->name('review.store');
+
+    //review section
 
 
 
