@@ -9,12 +9,8 @@
 					<div class="page-header">
 						<div class="row align-items-center">
 							<div class="col">
-								<h3 class="page-title">Users</h3>
-								<ul class="breadcrumb">
-									<li class="breadcrumb-item"><a href="index_admin">Home</a></li>
-									
-									<li class="breadcrumb-item active">Users</li>
-								</ul>
+								<h3 class="page-title">{{$title}}</h3>
+								
 							</div>
 							<div class="col-auto">
 								<a href="#" class="btn add-button me-2" data-bs-toggle="modal" data-bs-target="#add-category">
@@ -70,242 +66,47 @@
 										<table class="table table-center table-hover mb-0 datatable">
 											<thead>
 												<tr>
-													<th></th>
-													<th>Image</th>
+													
+													<th>Name</th>
 													<th>Email</th>	
 													<th>Expertise</th>	
 													<th>Joined date</th>	
+													<th>Address</th>	
+													<th>Active Status</th>	
 													<th class="text-end">Actions</th>
 												</tr>
 											</thead>
 											<tbody>
+												@foreach ($user as $row)
 												<tr>
 													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck1">
-														  <label class="form-check-label" for="customCheck1"></label>
-														</div>
+														{{$row->name}}
 													</td>
 													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-01.jpg" alt="User Image">
-																George Wells
-															</a>
-														</h2>
+														{{$row->email}}
 													</td>
-													<td>georgewells@example.com</td>
+													<td>{{$row->stack}}</td>
 													<td>
-														<button class="btn table-btn">Frontend designer</button>
+													 {{$row->created_at}}
 													</td>
-													<td>28-02-2022</td>
+													<td>{{$row->address}}</td>
+													@if($row->active==1)
+													<td>Active</td>
+													@endif
+													@if($row->active==0)
+													<td>inactive</td>
+													@endif
 													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
+														<a href="javascript:void(0);" 
+														id="{{ $row->id }}"
+														onclick="productview(this.id)"
+														class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
 														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
 													</td>
 												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck2">
-														  <label class="form-check-label" for="customCheck2"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-02.jpg" alt="User Image">
-																Floyd Lewis
-															</a>
-														</h2>
-													</td>
-													<td>floydlewis@example.com</td>
-													<td>
-														<button class="btn table-btn">Graphics Designer</button>
-													</td>
-													<td>14-01-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck3">
-														  <label class="form-check-label" for="customCheck3"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-03.jpg" alt="User Image">
-															Veronica Cheek</a>
-														</h2>
-													</td>
-													<td>veronicacheek@example.com</td>
-													<td>
-														<button class="btn table-btn">Web designer</button>
-													</td>
-													<td>23-11-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck4">
-														  <label class="form-check-label" for="customCheck4"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-04.jpg" alt="User Image">
-															Crystal Kemper</a>
-														</h2>
-													</td>
-													<td>crystalkemper@example.com</td>
-													<td>
-														<button class="btn table-btn">Web Designer</button>
-													</td>
-													<td>23-01-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck5">
-														  <label class="form-check-label" for="customCheck5"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-05.jpg" alt="User Image">
-															Andrew Glover</a>
-														</h2>
-													</td>
-													<td>andrewglover@example.com</td>
-													<td>
-														<button class="btn table-btn">IOS designer</button>
-													</td>
-													<td>23-01-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck6">
-														  <label class="form-check-label" for="customCheck6"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-06.jpg" alt="User Image">Jacqueline Daye</a>
-														</h2>
-													</td>
-													<td>jacquelinedaye@example.com</td>
-													<td>
-														<button class="btn table-btn">Vuejs designer</button>
-													</td>
-													<td>12-02-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck7">
-														  <label class="form-check-label" for="customCheck7"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-07.jpg" alt="User Image">Tony Ingle</a>
-														</h2>
-													</td>
-													<td>tonyingle@example.com</td>
-													<td>
-														<button class="btn table-btn">Laravel designer</button>
-													</td>
-													<td>12-02-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck8">
-														  <label class="form-check-label" for="customCheck8"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-08.jpg" alt="User Image">Albert Boone</a>
-														</h2>
-													</td>
-													<td>albertboone@example.com</td>
-													<td>
-														<button class="btn table-btn">Codingnator designer</button>
-													</td>
-													<td>12-02-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck9">
-														  <label class="form-check-label" for="customCheck9"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-09.jpg" alt="User Image">Kathleen Kaiser</a>
-														</h2>
-													</td>
-													<td>kathleenkaiser@example.com</td>
-													<td>
-														<button class="btn table-btn">Golang designer</button>
-													</td>
-													<td>12-01-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
-												<tr>
-													<td>
-														<div class="form-check custom-checkbox">
-														  <input type="checkbox" class="form-check-input" id="customCheck10">
-														  <label class="form-check-label" for="customCheck10"></label>
-														</div>
-													</td>
-													<td>
-														<h2 class="table-avatar">
-															<a href="profile"><img class="me-2 rounded-circle" src="../assets_admin/img/profiles/avatar-10.jpg" alt="User Image">Mickey Bernier</a>
-														</h2>
-													</td>
-													<td>mickeybernier@example.com</td>
-													<td>
-														<button class="btn table-btn">.Net designer</button>
-													</td>
-													<td>12-02-2022</td>
-													<td class="text-end">
-														<a href="javascript:void(0);" class="btn btn-sm btn-secondary me-2" data-bs-toggle="modal" data-bs-target="#edit-category"><i class="far fa-edit"></i></a> 
-														<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#delete_category"><i class="far fa-trash-alt"></i></a>
-													</td>
-												</tr>
+												@endforeach
+												
+												
 											</tbody>
 										</table>
 									</div>
@@ -369,7 +170,7 @@
 		</div>
 		<!-- Add Modal -->
 		
-		<!-- Add Modal -->
+		<!-- edit Modal -->
 		<div class="modal fade custom-modal" id="edit-category">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
@@ -383,31 +184,26 @@
 					</div>
 
 					<div class="modal-body">
-						<form>
+						<form method="post" action="{{route('user.update')}}" enctype="multipart/form-data">
+							@csrf
 							<div class="form-group">
-								<label>Full Name</label>
-								<input type="text" class="form-control" value=" George Wells">
+								<input type="text" hidden="true" name="id" id="id" />
+								<label>Name</label>
+								<input type="text" class="form-control" id="name" name="name">
 							</div>
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" class="form-control" value="georgewells@example.com">
+								<input type="email" class="form-control" id="email" name="email" >
 							</div>
 							<div class="form-group">
-								<label>Password</label>
-								<input type="password" class="form-control" value="*******">
+								<label>Address</label>
+								<input name="address" id="address" type="text" class="form-control">
 							</div>
 							<div class="form-group">
-								<label>Confirm Password</label>
-								<input type="password" class="form-control" value="********">
+								<label>Joining Date</label>
+								<input type="text" name="created_at" id="created_at" class="form-control">
 							</div>
-							<div class="form-group">
-								<label>User Type</label>
-								<select class="form-control form-select">
-									<option>Select</option>
-									<option selected>Frontend designer</option>
-									<option>Graphic Designer</option>
-								</select>
-							</div>
+						
 							<div class="mt-4">
 								<button type="submit" class="btn btn-primary btn-block">Submit</button>
 							</div>
@@ -442,4 +238,26 @@
 			</div>
 		</div>
 		<!-- /Delete Modal -->
+
+		
+<script type="text/javascript">
+    function productview(id){
+        $.ajax({
+         url: "{{ url('/admin/userDetails') }}/"+id, 
+         type: "GET",
+         dataType:"json",
+         success:function(data){
+		console.log(data.userDetails.name);
+       $('#name').val(data.userDetails.name);
+       $('#id').val(data.userDetails.id);
+       $('#email').val(data.userDetails.email);
+       $('#address').val(data.userDetails.address);
+       $('#created_at').val(data.userDetails.created_at);
+        }  
+        })
+    }
+
+
+</script>
+
 @endsection

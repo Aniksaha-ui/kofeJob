@@ -37,7 +37,7 @@
 										</li>
 
 										<li class="nav-item">
-											<a href="review" class="nav-link">
+											<a href="{{url('sellerReview')}}" class="nav-link">
 												<i class="material-icons">record_voice_over</i> Reviews
 											</a>
 										</li>
@@ -197,6 +197,8 @@
 								<div class="pro-overview">
 									<h2 class="text-primary text-center">{{$projectDetails->projectName}}</h2>
 									<p>{!! $projectDetails->description !!}</p>
+									<br><br>
+									<a href={{URL::to($projectDetails->docs)}}>Download Documentation</a>
 								</div>	
 							</div>
 							

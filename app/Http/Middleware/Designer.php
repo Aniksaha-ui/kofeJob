@@ -18,6 +18,10 @@ class Designer
         if ($request->user() && $request->user()->role=="seller") {
             return redirect('/manage-projects');
         }
+
+        if ($request->user() && $request->user()->role=="admin") {
+            return redirect('/admin/users');
+        }
         
         return $next($request);
     }

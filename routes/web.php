@@ -110,8 +110,21 @@ Route::group(['middleware' => 'App\Http\Middleware\Designer'],function(){
 
 
 
+//admin routes//
 
+Route::Group(['prefix' => 'admin'], function () { 
+Route::get('/users/activeDesigner','Admin\UserController@activeDesigner');
 
+Route::get('/users/inactiveDesigner','Admin\UserController@inActiveDesigner');
+
+Route::get('/users/activeSeller','Admin\UserController@activeSeller');
+
+Route::get('/users/inactiveSeller','Admin\UserController@inActiveSeller');
+
+Route::get('/userDetails/{id}','Admin\UserController@userDetails');
+Route::post('/userUpdate','Admin\UserController@updateUser')->name('user.update');
+
+});
 
 
 // Route::get('/blank-page', function () {

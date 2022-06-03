@@ -37,7 +37,7 @@
 											</a>
 										</li>
 										<li class="nav-item">
-											<a href="review" class="nav-link">
+											<a href="{{url('sellerReview')}}" class="nav-link">
 												<i class="material-icons">record_voice_over</i> Reviews
 											</a>
 										</li>
@@ -46,11 +46,7 @@
 												<i class="material-icons">chat</i> Messages
 											</a>
 										</li>
-										<li class="nav-item">
-											<a href="membership-plans" class="nav-link">
-												<i class="material-icons">person_add</i> Membership
-											</a>
-										</li>
+									
 										<li class="nav-item">
 											<a href="milestones" class="nav-link">
 												<i class="material-icons">pie_chart</i> Milestones
@@ -150,7 +146,11 @@
 														<div class="content-divider"></div>
 														<div class="projects-action text-center">
 															<a href="{{ url('view-project-detail?id='.$row->id) }}" class="projects-btn">View Details</a>
-															<a href="{{ url('setCompleteProject?id='.$row->id) }}" class="projects-btn">Complete Project</a>
+															
+															@if ($row->status=='hired')
+
+															<a href="{{ url('setCompleteProject?id='.$row->id) }}" class="projects-btn">Complete Project</a>																
+															@endif
 															<a href="#" class="hired-detail">Start on {{$row->startingDate}}</a>
 														</div>
 													</div>

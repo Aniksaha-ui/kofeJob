@@ -37,7 +37,7 @@
 								</a>
 							</li>
 							<li class="nav-item">
-								<a href="review" class="nav-link">
+								<a href="{{url('myReview')}}" class="nav-link">
 									<i class="material-icons">record_voice_over</i> Reviews
 								</a>
 							</li>

@@ -19,6 +19,11 @@ class Seller
         if ($request->user() && $request->user()->role=="designer") {
             return redirect('/designer-project-proposals');
         }
+
+        if ($request->user() && $request->user()->role=="admin") {
+            return redirect('/admin/users');
+        }
+
         return $next($request);
     }
 }
